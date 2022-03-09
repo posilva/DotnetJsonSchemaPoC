@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "LoginRequest",
+        "LeaveRequest",
+        "CreateRequest",
+        "JoinRequest",
+        "LoginResponse",
+        "LeaveResponse",
+        "CreateResponse",
+        "JoinResponse",
+        "FromServer",
+        "FromClient"
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "oneOf":[
+        {
+          "description": "Login Request Message",
+          "type": "object",
+          "properties": {
+            "bearer": {
+              "type": "string"
+            }
+          },
+          "required":[
+            "bearer"
+          ]
+        },
+        {
+          "description": "Create",
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "string"
+            }
+          },
+          "required":[
+            "data"
+          ]
+        }
+
+      ]
+    }
+  },
+  "required": [
+    "type",
+    "payload"
+  ]
+}

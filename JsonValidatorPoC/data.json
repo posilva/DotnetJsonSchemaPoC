@@ -1,0 +1,6 @@
+{
+  "type": "LoginRequest",
+  "payload": {
+    "bearer": "12345"
+  }
+}
